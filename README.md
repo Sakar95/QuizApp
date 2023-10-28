@@ -1,3 +1,20 @@
+
+Appflow :->
+
+User Login (Fake): The app allows the user to enter their name for a personalized experience, even though the login isn't real. The name is stored to address the user throughout the quiz.
+
+Select Quiz Category: Users can choose a quiz category from a list of available options. This helps customize the quiz based on their preferences.
+
+Quiz Questions: After selecting a category, the app displays a series of 10 quiz questions one by one. Users answer each question sequentially.
+
+Quiz Completion: Once the user answers all 10 questions, the quiz concludes, and their answers are evaluated.
+
+View Results: The app presents the user's results, including their name, the number of correct answers, and a percentage score. This summary provides feedback on their performance.
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
