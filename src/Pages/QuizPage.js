@@ -51,7 +51,7 @@ export default function QuizPage() {
           setTimer(10); // Reset the timer for the next question
           setSelectedOption(null); // Reset selected option
           // If the timer runs out, consider the question unattempted
-          setWrongCount(wrongCount + 1);
+          setWrongCount(10-correctCount);
         } else {
           // If there are no more questions, navigate to the result page
           navigate("/result");
@@ -78,12 +78,11 @@ export default function QuizPage() {
       } else {
         if (currentQuestionIndex < quizQuestions.length - 1) {
           setCurrentQuestionIndex(currentQuestionIndex + 1);
-          setTimer(10); // Reset the timer for the next question
-          setSelectedOption(null); // Reset selected option
-          // If the timer runs out, consider the question unattempted
-          setWrongCount(wrongCount + 1);
+          setTimer(10); 
+          setSelectedOption(null); 
+          setWrongCount(10-correctCount);
         } else {
-          clearInterval(interval); // Stop the timer when there are no more questions
+          clearInterval(interval);
           navigate("/result");
         }
       }
@@ -95,8 +94,8 @@ export default function QuizPage() {
   }, [currentQuestionIndex, quizQuestions, timer, wrongCount]);
 
   return (
-    <>
-      <div className="w-screen max-w-sm bg-yellow-400 h-60 rounded-3xl pt-8 h-1/3 p-4 relative">
+    <div  className="h-screen w-screen max-w-sm  m-auto shadow-lg shadow-black">
+      <div className=" bg-gray-800 h-60 rounded-3xl pt-8 h-1/3 p-4 relative shadow-lg shadow-black">
         <div className="flex justify-between">
           <div className="text-2xl text-bold text-white cursor-pointer" onClick={() => navigate("/")}>
             <FontAwesomeIcon icon={faAngleLeft} />
@@ -118,7 +117,7 @@ export default function QuizPage() {
 
       </div>
       {/* Shuffled Options */}
-      <div className="absolute bottom-12 w-64 left-1/2 transform -translate-x-1/2 p-2 shadow-md ">
+      <div className="absolute bottom-12 w-64 left-1/2 transform -translate-x-1/2 p-2 shadow-md text-white ">
         {shuffledOptions.map((option, index) => (
           <div
             key={index}
@@ -137,6 +136,6 @@ export default function QuizPage() {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 }

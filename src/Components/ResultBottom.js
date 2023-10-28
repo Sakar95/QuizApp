@@ -7,7 +7,7 @@ export default function ResultBottom() {
     const navigate = useNavigate()
   return (
     <div className="absolute bottom-12 w-64 left-1/2 transform -translate-x-1/2 p-6 shadow-md">
-    <div className='flex justify-between  pb-2'>
+    {/* <div className='flex justify-between  pb-2'>
       <div className='text-yellow-500 flex flex-col item-center cursor-pointer' onClick={()=>navigate("/")}>
       <FontAwesomeIcon icon={faHouse} size="xl"  /><p className='text-xs text-black'>Home</p>
       </div> 
@@ -28,7 +28,9 @@ export default function ResultBottom() {
       <div className='text-yellow-500 flex flex-col item-center'>
       <FontAwesomeIcon icon={faArrowRotateLeft}  size="xl" /> <p className='text-xs text-black'>Try Again</p>
       </div>
-    </div>
+    </div> */}
+    <button className='border-2 bg-reg-400 rounded-lg'>Play Again</button>
+
   </div>
   )
 }

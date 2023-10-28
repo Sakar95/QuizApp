@@ -6,7 +6,7 @@ import {faCircle } from '@fortawesome/free-solid-svg-icons';
 export default function Score() {
     const { quizQuestions, correctCount, setCorrectCount, wrongCount, setWrongCount } = useQuizContext();
   return (
-    <div className='absolute w-2/3 h-60 bg-white left-16 top-56 rounded-3xl shadow-lg px-4'>
+    <div className='absolute w-2/3 h-60 bg-white left-16 top-56 rounded-3xl shadow-lg shadow-black px-4'>
       <div className='flex justify-between mt-12 mx-2 '>
         <div >
             <div>

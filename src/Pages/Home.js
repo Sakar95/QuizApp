@@ -7,13 +7,16 @@ import { faVolleyball, faRocket, faHourglassHalf, faUser, faAngleLeft, faLandmar
 import { useNavigate } from 'react-router-dom'
 export default function Home() {
 
-    const { category, setCategory, quizQuestions, setQuizQuestions } = useQuizContext()
+    const { category, setCategory, quizQuestions, setQuizQuestions,setCorrectCount,setWrongCount,setCurrentQuestionIndex,name } = useQuizContext()
     const [categorySelected, setCategorySelected] = useState(false)
     const navigate = useNavigate()
 
     useEffect(() => {
         // Fetch quiz questions when the component mounts
         fetchQuizQuestions(category);
+        setCorrectCount(0);
+        setWrongCount(0);
+        setCurrentQuestionIndex(0)
     }, [category]);
 
     const fetchQuizQuestions = async (category) => {
@@ -36,17 +39,17 @@ export default function Home() {
 
 
     return (
-        <>
-            <div className="flex ">
-                <div className=" w-screen bg-yellow-400  rounded-3xl pt-8 h-1/3 p-4 shadow-lg">
+        <div className='max-w-sm m-auto h-screen shadow-md shadow-black '>
+            <div className="flex max-w-sm ">
+                <div className=" w-screen bg-gray-800  rounded-3xl pt-8 h-1/3 p-4 shadow-lg">
                     <div className="flex justify-between ">
                         <div className="text-2xl text-bold text-white">{<FontAwesomeIcon icon={faAngleLeft} size='lg' />}</div>
-                        <div className="text-center text-white mt-1 font-bold">Hello Alex</div>
+                        <div className="text-center text-white mt-1 font-bold">Hello {name}</div>
                         <div ><FontAwesomeIcon icon={faUser} size='lg' color='white' /></div>
 
                     </div>
-                    <div className="mt-8">Popular</div>
-                    <div className="flex justify-between  mt-4">
+                    <div className="mt-8 text-white">Popular</div>
+                    <div className="flex justify-between   mt-4">
                         <div onClick={() => handleClick(21)} className={`cursor-pointer ${category === 21 ? 'border-orange-600 border-2 rounded-lg' : 'border-white border-2 rounded-lg'}`}>
                             <QuizType
                                 name="Sports"
@@ -72,10 +75,10 @@ export default function Home() {
 
                 </div>
             </div>
-            <div className='flex flex-col'>
-                <div className="rounded-xl pt-8 h-1/3 p-4 mx-4 ">
-                    <p>Explore</p>
-                    <div className="flex justify-between  mt-4">
+            <div className='flex flex-col mx-w-sm '>
+                <div className="rounded-xl  h-1/3 p-4 mx-4">
+                    <p className=' text-white '>Explore</p>
+                    <div className="flex justify-between  mt-2">
                         <div onClick={() => handleClick(24)} className={`cursor-pointer ${category === 24 ? 'border-orange-600 border-2 rounded-lg' : 'border-white border-2 rounded-lg'}`}>
                             <QuizType
                                 name="Poilitics"
@@ -99,7 +102,7 @@ export default function Home() {
                     </div>
                     <div />
                 </div>
-                <div className="rounded-xl pt-8 h-1/3 p-4 mx-4">
+                <div className="rounded-xl pt-4 h-1/3 p-4 mx-4 mx-w-sm">
 
                     <div className="flex justify-between  ">
                         <div onClick={() => handleClick(25)} className={`cursor-pointer ${category === 25 ? 'border-orange-600 border-2 rounded-lg' : 'border-white border-2 rounded-lg'}`}>
@@ -123,7 +126,7 @@ export default function Home() {
                     </div>
                     <div />
                 </div>
-                <div className="rounded-xl pt-8 h-1/3 p-4 mx-4">
+                <div className="rounded-xl pt-4 h-1/3 p-4 mx-4 mx-w-sm">
 
                     <div className="flex justify-between  ">
                         <div onClick={() => handleClick(21)} className={`cursor-pointer ${category === 21 ? 'border-orange-600 border-2 rounded-lg' : 'border-white border-2 rounded-lg'}`}>
@@ -148,10 +151,10 @@ export default function Home() {
                     <div />
                 </div>
             </div>
-            <div className='absolute bottom-4 left-1/2 transform -translate-x-1/2 border-4 border-red-400 bg-yellow-400 rounded-full w-16 h-16 flex items-center justify-center cursor-pointer text-white ' onClick={() => { navigate("/quiz") }}>
+            <div className='absolute bottom-4 left-1/2 transform -translate-x-1/2 border-4 border-red-400 bg-yellow-400 rounded-full w-16 h-16 flex items-center justify-center cursor-pointer text-white mx-w-sm' onClick={() => { navigate("/quiz") }}>
                 Start
             </div>
-        </>
+        </div>
 
     )
 }

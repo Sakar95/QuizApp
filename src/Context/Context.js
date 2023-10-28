@@ -13,6 +13,9 @@ export const ContextProvider = ({ children }) => {
   const [correctCount, setCorrectCount] = useState(0);
   const [wrongCount, setWrongCount] = useState(0);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [name,setName] = useState("")
+  const [email,setEmail]=useState("")
+  const [password,setPassword]=useState("")
 
 
   return (
@@ -22,7 +25,10 @@ export const ContextProvider = ({ children }) => {
         quizQuestions,setQuizQuestions,
         correctCount, setCorrectCount,
         wrongCount, setWrongCount,
-        currentQuestionIndex, setCurrentQuestionIndex
+        currentQuestionIndex, setCurrentQuestionIndex,
+        name,setName,
+        email,setEmail,
+        password,setPassword
       }}
     >
       {children}
